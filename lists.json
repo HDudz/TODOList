@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Zakupy",
+        "tasks": [
+            "Kup mleko",
+            "Kup chleb",
+            "Kup owoce",
+            "Kup warzywa"
+        ]
+    },
+    {
+        "title": "Prace domowe",
+        "tasks": [
+            "Posprzątać pokój",
+            "Zmyć naczynia",
+            "Odkurzyć",
+            "Umyć podłogi"
+        ]
+    },
+    {
+        "title": "Praca",
+        "tasks": [
+            "Napisz raport",
+            "Ukończ projekt",
+            "Odpowiedz na maile",
+            "Zorganizuj spotkanie"
+        ]
+    }
+]
