@@ -6,7 +6,7 @@ from functions import load_todo_lists, delete_lists
 class MainPage:
     def __init__(self, root):
         self.root = root
-        self.file_path = 'lists.json'
+        self.file_path = '../data/lists.json'
         self.sec_color = "#444444"
         #Creating Frames
         self.mainPageFrame = ttk.Frame(root, style='secondary')
