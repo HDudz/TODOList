@@ -17,3 +17,6 @@ def delete_lists(lists, title, file_path):
     if selected_list:
         lists.remove(selected_list)
         save_todo_lists(lists, file_path)
+
+def switch_to(frame):
+    frame.tkraise()
