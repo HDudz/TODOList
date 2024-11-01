@@ -36,7 +36,7 @@ class MainPage:
 
         #Load lists from file
         self.lists = load_todo_lists(self.file_path)
-
+        self.add_page = AddPage(self.app)
         #Configure
         self.setup_mainPageFrame()
 
@@ -48,7 +48,7 @@ class MainPage:
         self.mainPageFrame.columnconfigure((1,2), weight=0)
         self.mainPageFrame.rowconfigure(0, weight=0)
 
-        self.add_page = AddPage(self.app)
+
 
         for widget in self.mainPageFrame.winfo_children():
             widget.destroy()
