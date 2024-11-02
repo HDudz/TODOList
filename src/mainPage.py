@@ -29,45 +29,47 @@ class MainPage:
         self.blackEditImg = ImageTk.PhotoImage(black_edit_img)
 
         #Creating Frames
-        self.mainPageFrame = ttk.Frame(self.root, style='secondary')
+        self.frame = ttk.Frame(self.root, style='secondary')
 
         #GridingFrames
-        self.mainPageFrame.grid(column=1, row=0, sticky="nwes")
+        self.frame.grid(column=1, row=0, sticky="nwes")
 
         #Load lists from file
         self.lists = load_todo_lists(self.file_path)
-        self.add_page = AddPage(self.app)
+
+
+        self.add_page = AddPage(self.app, self)
         #Configure
-        self.setup_mainPageFrame()
+        self.setup()
 
 
 
-    def setup_mainPageFrame(self):
+    def setup(self):
         """Configures main page frame"""
-        self.mainPageFrame.columnconfigure(0, weight=1)
-        self.mainPageFrame.columnconfigure((1,2), weight=0)
-        self.mainPageFrame.rowconfigure(0, weight=0)
+        self.frame.columnconfigure(0, weight=1)
+        self.frame.columnconfigure((1, 2), weight=0)
+        self.frame.rowconfigure(0, weight=0)
+        self.lists = load_todo_lists(self.file_path)
 
 
-
-        for widget in self.mainPageFrame.winfo_children():
+        for widget in self.frame.winfo_children():
             widget.destroy()
 
-        choiceLabel = ttk.Label(self.mainPageFrame, text="Choose your TODO List", font=('roboto', 20), background=self.app.sec_color)
+        choiceLabel = ttk.Label(self.frame, text="Choose your TODO List", font=('roboto', 20), background=self.app.sec_color)
         choiceLabel.grid(column=0, row=0, columnspan=3, sticky='n', pady=(20, 10), padx=(20, 0))
 
         for index, todo in enumerate(self.lists, start=1):
             title = todo['title']
-            select_button = ttk.Button(self.mainPageFrame, text=title, width=20, style='light-outline' ,command=lambda t=title: self.switch_to_list(t))
-            edit_button = ttk.Button(self.mainPageFrame, style="primary", width=4, image=self.whiteEditImg, compound=CENTER)
-            delete_button = ttk.Button(self.mainPageFrame, style="danger", width=4, image=self.whiteDelImg, compound=CENTER)
+            select_button = ttk.Button(self.frame, text=title, width=20, style='light-outline', command=lambda t=title: self.switch_to_list(t))
+            edit_button = ttk.Button(self.frame, style="primary", width=4, image=self.whiteEditImg, compound=CENTER)
+            delete_button = ttk.Button(self.frame, style="danger", width=4, image=self.whiteDelImg, compound=CENTER)
             delete_button.config(command=lambda t=title, i=index, selB=select_button: self.del_list(t, i, selB))
 
             select_button.grid(column=0, row=index, sticky='ew', pady=(10, 0), padx=(20, 0))
             edit_button.grid(column=1, row=index, sticky='ew',  pady=(10, 0))
             delete_button.grid(column=2, row=index, sticky='ew', pady=(10, 0), padx=(0, 20))
 
-        add_new_list_button = ttk.Button(self.mainPageFrame, text="Add new list", style="success", command=self.switch_to_adding)
+        add_new_list_button = ttk.Button(self.frame, text="Add new list", style="success", command=self.switch_to_adding)
         add_new_list_button.grid(column=0, row=len(self.lists) + 1, columnspan = 1, sticky='ew', pady=(10, 0), padx=(20, 0))
 
 
@@ -78,7 +80,7 @@ class MainPage:
             if decision:
                 delete_lists(self.lists, title, self.file_path)
                 self.lists = load_todo_lists(self.file_path)
-                self.setup_mainPageFrame()
+                self.setup()
             else:
                 confirmButton.destroy()
                 declineButton.destroy()
@@ -86,15 +88,20 @@ class MainPage:
 
 
         select_button.config(text="Are you sure you want to delete?")
-        confirmButton = ttk.Button(self.mainPageFrame, text="Yes", style="success", width=4, command=lambda: decide(True))
+        confirmButton = ttk.Button(self.frame, text="Yes", style="success", width=4, command=lambda: decide(True))
         confirmButton.grid(column=1, row=index, sticky='ew', pady=(10, 0))
-        declineButton = ttk.Button(self.mainPageFrame, text="No", style="danger", width=4, command=lambda: decide(False))
+        declineButton = ttk.Button(self.frame, text="No", style="danger", width=4, command=lambda: decide(False))
         declineButton.grid(column=2, row=index, sticky='ew', pady=(10, 0), padx=(0, 20))
 
     def switch_to_list(self, title):
         list_page = ListPage(self.app, title)
-        switch_to(list_page.listFrame)
+        switch_to(list_page)
+
     def switch_to_adding(self):
-         switch_to(self.add_page.addFrame)
+         switch_to(self.add_page)
+
+    def show(self):
+        self.setup()
+        self.frame.tkraise()
 
 
