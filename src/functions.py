@@ -22,7 +22,3 @@ def add_lists(title, tasks, file_path):
     lists = load_todo_lists(file_path)
     lists.append({"title": title, "todo": tasks})
     save_todo_lists(lists, file_path)
-
-def switch_to(page):
-    page.show()
-    page.frame.tkraise()
