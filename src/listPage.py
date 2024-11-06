@@ -21,9 +21,6 @@ class ListPage:
         for widget in self.frame.winfo_children():
             widget.destroy()
 
-        #Load lists from file
-        self.lists = load_todo_lists(self.file_path)
-
         selected_list = next((todo for todo in self.lists if todo["title"] == self.title), None)
 
         if selected_list:
@@ -38,3 +35,4 @@ class ListPage:
 
     def show(self):
         self.setup()
+        self.frame.tkraise()

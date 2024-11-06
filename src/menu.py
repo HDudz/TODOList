@@ -17,7 +17,7 @@ class Menu:
         self.frame.rowconfigure(3, weight=1)
 
         self.titleLabel = ttk.Label(self.frame, text="  TODO\nManager", font=("roboto", 20, "bold", "italic"))
-        self.choiceButton = ttk.Button(self.frame, text="Choose list", style="outline-light", command=lambda frame=self.main_page: switch_to(frame))
+        self.choiceButton = ttk.Button(self.frame, text="Choose list", style="outline-light", command=lambda frame=self.main_page: frame.show())
         self.settingsButton = ttk.Button(self.frame, text="Settings", style="outline-light")
         self.quitButton = ttk.Button(self.frame, text="Quit", style="outline-danger", command=self.root.destroy)
 
