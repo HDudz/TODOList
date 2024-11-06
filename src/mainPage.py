@@ -4,6 +4,7 @@ from functions import *
 from PIL import Image, ImageTk
 from listPage import ListPage
 from addPage import AddPage
+from editPage import EditPage
 
 
 class MainPage:
@@ -61,7 +62,7 @@ class MainPage:
         for index, todo in enumerate(self.lists, start=1):
             title = todo['title']
             select_button = ttk.Button(self.frame, text=title, width=20, style='light-outline', command=lambda t=title: self.switch_to_list(t))
-            edit_button = ttk.Button(self.frame, style="primary", width=4, image=self.whiteEditImg, compound=CENTER)
+            edit_button = ttk.Button(self.frame, style="primary", width=4, image=self.whiteEditImg, compound=CENTER, command=lambda t=title: self.switch_to_edit(t))
             delete_button = ttk.Button(self.frame, style="danger", width=4, image=self.whiteDelImg, compound=CENTER)
             delete_button.config(command=lambda t=title, i=index, selB=select_button: self.del_list(t, i, selB))
 
@@ -95,10 +96,14 @@ class MainPage:
 
     def switch_to_list(self, title):
         list_page = ListPage(self.app, title)
-        switch_to(list_page)
+        list_page.show()
+
+    def switch_to_edit(self, title):
+        edit_page = EditPage(self.app, title)
+        edit_page.show()
 
     def switch_to_adding(self):
-         switch_to(self.add_page)
+        self.add_page.show()
 
     def show(self):
         self.setup()
