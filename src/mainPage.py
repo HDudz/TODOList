@@ -1,10 +1,10 @@
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 from functions import *
-from PIL import Image, ImageTk
 from listPage import ListPage
 from addPage import AddPage
 from editPage import EditPage
+from icons import icons
 
 
 class MainPage:
@@ -12,22 +12,7 @@ class MainPage:
         self.app = app
         self.root = app.root
         self.file_path = '../data/lists.json'
-        whiteEdit_path = '../data/whiteEdit.png'
-        blackEdit_path = '../data/blackEdit.png'
-        whiteDel_path = '../data/whiteDel.png'
-        blackDel_path = '../data/blackDel.png'
 
-
-        # Rescaling
-        white_edit_img = Image.open(whiteEdit_path).resize((20, 20))
-        black_edit_img = Image.open(blackEdit_path).resize((20, 20))
-        white_del_img = Image.open(whiteDel_path).resize((20, 20))
-        black_del_img = Image.open(blackDel_path).resize((20, 20))
-
-        self.whiteDelImg = ImageTk.PhotoImage(white_del_img)
-        self.blackDelImg = ImageTk.PhotoImage(black_del_img)
-        self.whiteEditImg = ImageTk.PhotoImage(white_edit_img)
-        self.blackEditImg = ImageTk.PhotoImage(black_edit_img)
 
         #Creating Frames
         self.frame = ttk.Frame(self.root, style='secondary')
@@ -62,8 +47,8 @@ class MainPage:
         for index, todo in enumerate(self.lists, start=1):
             title = todo['title']
             select_button = ttk.Button(self.frame, text=title, width=20, style='light-outline', command=lambda t=title: self.switch_to_list(t))
-            edit_button = ttk.Button(self.frame, style="primary", width=4, image=self.whiteEditImg, compound=CENTER, command=lambda t=title: self.switch_to_edit(t))
-            delete_button = ttk.Button(self.frame, style="danger", width=4, image=self.whiteDelImg, compound=CENTER)
+            edit_button = ttk.Button(self.frame, style="primary", width=4, image=icons.whiteEdit, compound=CENTER, command=lambda t=title: self.switch_to_edit(t))
+            delete_button = ttk.Button(self.frame, style="danger", width=4, image=icons.whiteDel, compound=CENTER)
             delete_button.config(command=lambda t=title, i=index, selB=select_button: self.del_list(t, i, selB))
 
             select_button.grid(column=0, row=index, sticky='ew', pady=(10, 0), padx=(20, 0))
@@ -99,7 +84,7 @@ class MainPage:
         list_page.show()
 
     def switch_to_edit(self, title):
-        edit_page = EditPage(self.app, title)
+        edit_page = EditPage(self.app, self, title)
         edit_page.show()
 
     def switch_to_adding(self):

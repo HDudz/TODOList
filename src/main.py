@@ -1,8 +1,11 @@
 import ttkbootstrap as ttk
+
 from ttkbootstrap.constants import *
 
 from mainPage import MainPage
 from menu import Menu
+from icons import icons
+
 
 class App:
     sec_color = "#444444"
@@ -14,6 +17,8 @@ class App:
         self.root.geometry("800x600")
         self.root.title("TODO List")
         self.root.option_add("*font", "roboto")
+
+        icons.load()
 
         self.root.columnconfigure(0, weight=0)
         self.root.columnconfigure(1, weight=2)
