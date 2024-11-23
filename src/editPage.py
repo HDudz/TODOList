@@ -56,7 +56,7 @@ class EditPage:
 
         for i, task in enumerate(self.selected_list["todo"], start=1):
             task_edit = ttk.Entry(editFrame.container, font=('roboto', 12))
-            task_edit.insert(0, task)
+            task_edit.insert(0, task['task'])
             delete_button = ttk.Button(editFrame.container, style="danger", width=4, image=icons.whiteDel, compound=CENTER, command=lambda index=i - 1: self.delete_task(index) )
 
 
@@ -79,7 +79,7 @@ class EditPage:
     def submit(self):
         self.selected_list["title"] = self.nameEntry.get()
         for i, task in enumerate(self.tasks, start=0):
-            self.selected_list["todo"][i] = task.get()
+            self.selected_list["todo"][i]["task"] = task.get()
         save_todo_lists(self.lists, self.file_path)
         self.main_page.show()
 
@@ -88,6 +88,8 @@ class EditPage:
         self.setup()
 
     def add_new_task(self):
-        self.selected_list["todo"].append("")
+        for i, task in enumerate(self.tasks, start=0):
+            self.selected_list["todo"][i]["task"] = task.get()
+        self.selected_list["todo"].append({"task": "", "done": False})
         self.setup()
 
