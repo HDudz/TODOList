@@ -20,5 +20,6 @@ def delete_lists(lists, title, file_path):
 
 def add_lists(title, tasks, file_path):
     lists = load_todo_lists(file_path)
-    lists.append({"title": title, "todo": tasks})
+    formatted_tasks = [{"task": t, "done": False} for t in tasks]
+    lists.append({"title": title, "todo": formatted_tasks})
     save_todo_lists(lists, file_path)
