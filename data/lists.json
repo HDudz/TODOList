@@ -2,46 +2,98 @@
     {
         "title": "Zakupy",
         "todo": [
-            "Kupi\u0107 chleb",
-            "Kupic mleko",
-            "Kupi\u0107 owoce",
-            "Kupic warzywa"
+            {
+                "task": "Kupi\u0107 chleb",
+                "done": true
+            },
+            {
+                "task": "Kupic mleko",
+                "done": true
+            },
+            {
+                "task": "Kupi\u0107 owoce",
+                "done": false
+            },
+            {
+                "task": "Kupi\u0107 wode",
+                "done": false
+            }
         ]
     },
     {
         "title": "Przygotowanie do egzaminu",
         "todo": [
-            "Przeczyta\u0107 notatki z wyk\u0142ad\u00f3w",
-            "Rozwi\u0105za\u0107 zadania z poprzednich lat",
-            "Zrobi\u0107 prezentacj\u0119",
-            "Powt\u00f3rzy\u0107 kluczowe definicje"
+            {
+                "task": "Przeczyta\u0107 notatki z wyk\u0142ad\u00f3w",
+                "done": false
+            },
+            {
+                "task": "Rozwi\u0105za\u0107 zadania z poprzednich lat",
+                "done": true
+            },
+            {
+                "task": "Zrobi\u0107 prezentacj\u0119",
+                "done": false
+            },
+            {
+                "task": "Powt\u00f3rzy\u0107 kluczowe definicje",
+                "done": false
+            }
         ]
     },
     {
         "title": "Projekty",
         "todo": [
-            "Zako\u0144czy\u0107 projekt w Pythonie",
-            "Zacz\u0105\u0107 prac\u0119 nad projektem w C++",
-            "Wykona\u0107 dokumentacj\u0119 do projekt\u00f3w",
-            "Sprawdzi\u0107 wyniki test\u00f3w"
+            {
+                "task": "Zako\u0144czy\u0107 projekt w Pythoniku",
+                "done": false
+            },
+            {
+                "task": "Zacz\u0105\u0107 prac\u0119 nad projektem w C++",
+                "done": false
+            },
+            {
+                "task": "Wykona\u0107 dokumentacj\u0119 do projekt\u00f3w",
+                "done": false
+            },
+            {
+                "task": "Sprawdzi\u0107 wyniki test\u00f3w",
+                "done": true
+            }
         ]
     },
     {
         "title": "Sport",
         "todo": [
-            "P\u00f3j\u015b\u0107 na si\u0142owni\u0119",
-            "Zrobi\u0107 30 minut joggingu",
-            "Wzi\u0105\u0107 udzia\u0142 w zaj\u0119ciach jogi",
-            "P\u00f3j\u015b\u0107 na rower"
+            {
+                "task": "Zrobi\u0107 30 minut joggingu",
+                "done": false
+            },
+            {
+                "task": "Wzi\u0105\u0107 udzia\u0142 w zaj\u0119ciach jogi",
+                "done": true
+            }
         ]
     },
     {
         "title": "Czas wolny",
         "todo": [
-            "Przeczyta\u0107 ksi\u0105\u017ck\u0119",
-            "Obejrze\u0107 nowy film",
-            "Zrobi\u0107 zdj\u0119cia na spacerze",
-            "Zadzwoni\u0107 do przyjaciela"
+            {
+                "task": "Przeczyta\u0107 ksi\u0105\u017ck\u0119",
+                "done": false
+            },
+            {
+                "task": "Obejrze\u0107 nowy film",
+                "done": false
+            },
+            {
+                "task": "Zrobi\u0107 zdj\u0119cia na spacerze",
+                "done": false
+            },
+            {
+                "task": "Zadzwoni\u0107 do przyjaciela",
+                "done": false
+            }
         ]
     }
 ]
