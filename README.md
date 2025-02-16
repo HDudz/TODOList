@@ -19,7 +19,7 @@ JSON: Storing to-do list data persistently
 ## Why This Project?
 This project was developed as part of my learning journey to enhance my skills in Python and GUI development.
 
-##How to Run?
+## How to Run?
 Download project as zip. 
 Create new python project e.g. using PyCharm.
 Extract src and data directories into your project directory.
