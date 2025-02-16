@@ -21,7 +21,11 @@ This project was developed as part of my learning journey to enhance my skills i
 
 ## How to Run?
 Download project as zip. 
+
 Create new python project e.g. using PyCharm.
+
 Extract src and data directories into your project directory.
+
 Open project and install required packages.
+
 Run main.py
